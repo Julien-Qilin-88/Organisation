@@ -9,9 +9,23 @@
     <header>
         <%- include("partials/header") %>
     </header>
+
     <main>
-        <h1>coucou</h1>
+
+        <%- include("modules/google")  %>
+
+        <div class="widgets">
+
+            <%- include("modules/note") %>
+
+            <%- include("modules/favoris") %>
+
+            <%- include("modules/rdv") %>
+
+        </div>
+
     </main>
+
     <footer>
         <%- include("partials/footer") %>
     </footer>

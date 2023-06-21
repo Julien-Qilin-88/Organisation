@@ -1,0 +1,77 @@
+@use '../var';
+@use "sass:color";
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.5rem;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+
+
+}
+
+.btn:hover {
+    background-color: var.$opacity-valider;
+    color: black;
+
+}
+.btn-form{
+  margin-top: 1rem;  
+}
+.btn-valider {
+    display: flex;
+    background-color: var.$btn-valider;
+    color: var.$white;
+}
+
+.btn-valider:hover {
+    background-color: var.$opacity-valider;
+    color: black;
+
+}
+
+.delete{
+    border: none;
+    border-radius: 5px;
+    background-color: var.$btn-annuler;
+    color: white;
+    cursor: pointer;
+    padding-top: 0.2rem;
+    &:hover{
+        background-color: var.$opacity-annuler;
+        color: black;
+    }
+}
+
+.ajouter{
+    border: none;
+    border-radius: 5px;
+    background-color: var.$btn-valider;
+    color: white;
+    cursor: pointer;
+    padding-top: 0.2rem;
+    &:hover{
+        background-color: var.$opacity-valider;
+        color: black;
+    }
+
+}
+
+.editer{
+    border: none;
+    border-radius: 5px;
+    background-color: var.$btn-editer;
+    color: white;
+    cursor: pointer;
+    padding-top: 0.2rem;
+    font-weight: 400;
+    &:hover{
+        background-color: var.$opacity-editer;
+        color: black;
+    }
+}

@@ -1,0 +1,161 @@
+@use '../var';
+
+.favoris {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    background-color: var.$widget;
+    width: 30%;
+    height: 25rem;
+    border: solid 1px black;
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+
+    &__liens {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        &--card {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            width: 20%;
+            box-sizing: border-box;
+            font-weight: bold;
+            color: var.$secondary;
+
+
+            &:hover {
+                font-weight: bold;
+                color: var.$primary;
+                border: 1px solid var.$primary;
+                border-radius: 5px;
+            }
+        }
+
+
+    }
+
+
+    &__nouvelle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        &__title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        &__texte {
+            height: 2rem;
+            border-radius: 5px;
+            border: solid 1px black;
+            width: 70%;
+            margin-right: 1rem;
+        }
+
+    }
+
+}
+
+.favoriForm {
+
+    &__lien {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: start;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+}
+
+
+
+
+// Modal bloc note
+
+
+.modal-container {
+    // display: none;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-container.active {
+    // display: block;
+    transition: visibility 0s;
+    visibility: visible;
+}
+
+.overlay {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333333d3;
+    transition: opacity 0.4s 0.2s ease-out;
+}
+
+.modal-container.active .overlay {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+.modal {
+    opacity: 0;
+    width: 95%;
+    max-width: 500px;
+    min-width: 300px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s ease-out;
+    transform: 0.4s ease-out;
+}
+
+.modal-container.active .modal {
+    opacity: 1;
+
+    transition: opacity 0.4s 0.2s ease-out;
+
+}
+
+.close-modal {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: #ff365e;
+    color: #fff;
+}
+
+.modal h1 {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.modal p {
+    line-height: 1.4;
+    margin-bottom: 5px;
+}

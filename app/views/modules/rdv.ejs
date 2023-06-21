@@ -1,0 +1,66 @@
+<!-- Rendez-vous -->
+
+<div class="rdv">
+
+    <div class="rdv__encours">
+        <table class="tableaurdv">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Lieu</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody id="rdvs">
+            </tbody>
+        </table>
+    </div>
+
+    <!-- modal rendez-vous -->
+
+    <div class="modal-container" id="modal-rdv">
+        <div class="overlay modal-trigger"></div>
+
+        <div class="modal" role="dialog" aria-labelledby="modalTitle">
+            <button class="close-modal modal-trigger" aria-label="note">X</button>
+
+            <form id="new-rdv">
+                <fieldset class="rdv__nouveau">
+                    <legend class="rdv__nouveau__title">Ajouter un rendez-vous</legend>
+
+                    <div class="rdv__nouveau__form">
+                        <label for="nom">Nom :</label>
+                        <input class="rdv__nouveau__input" type="text" name="nom" id="rdvNom"
+                            placeholder="Nom du rendez-vous ...">
+                    </div>
+
+                    <div class="rdv__nouveau__form">
+                        <label for="lieu">Lieu :</label>
+                        <input class="rdv__nouveau__input" type="text" name="lieu" id="rdvLieu"
+                            placeholder="Lieu du rendez-vous ...">
+                    </div>
+
+                    <div class="rdv__nouveau__form">
+                        <label for="date">Date :</label>
+                        <input class="rdv__nouveau__input" type="date" name="date" id="rdvDate">
+
+                    </div>
+                    <div class="rdv__nouveau__form">
+                        <label for="heure">Heure :</label>
+                        <input class="rdv__nouveau__input" type="time" name="heure" id="rdvHeure">
+
+                    </div>
+                    <button type="submit" class="btn btn-valider">Ajouter rendez-vous</button>
+                </fieldset>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <button class="btn btn-valider" id="btn-rdv">Ajouter rendez-vous</button>
+
+</div>

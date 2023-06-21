@@ -1,0 +1,33 @@
+<!-- Bloc note -->
+
+<div class="note">
+
+    <div class="note__write">
+        <ul class="note__write__ul" id="notes">
+        </ul>
+    </div>
+
+    <!-- modal bloc note -->
+
+    <div class="modal-container" id="modal-note">
+        <div class="overlay modal-trigger"></div>
+
+        <div class="modal" role="dialog" aria-labelledby="modalTitle">
+            <button class="close-modal modal-trigger" aria-label="note">X</button>
+
+            <form id="new-note" class="note__nouvelle form-note">
+                <label for="note" class="note__nouvelle__title">Ecrire une nouvelle note</label>
+                <textarea class="note__nouvelle__texte" name="note" id="note" cols="30" rows="10"
+                    placeholder="Ecrire note ..."></textarea>
+
+                <button type="submit" class="btn btn-valider" id="btn-add-note">Ajouter note</button>
+
+
+            </form>
+
+        </div>
+    </div>
+
+    <button class="btn btn-valider" id="btn-note">Ajouter note</button>
+
+</div>

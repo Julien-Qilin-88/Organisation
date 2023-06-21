@@ -1,0 +1,22 @@
+@import url(https://fonts.bunny.net/css?family=roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i);
+
+$primary : #D57717;
+$secondary : #3E4E71;
+
+$btn-annuler :#932524;
+$opacity-annuler:    rgba( $btn-annuler, 0.6 );
+
+$btn-editer :#0060dd;
+$opacity-editer:    rgba( $btn-editer, 0.6 );
+
+$btn-valider : #41784A;
+$opacity-valider:    rgba( $btn-valider, 0.6 );
+
+$white : #ffffff;
+
+$font : 'Roboto', sans-serif;
+
+// widget color
+
+$widget : rgba( $white, 0.4 );
+

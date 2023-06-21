@@ -1,0 +1,58 @@
+<!-- Favoris -->
+
+<div class="favoris">
+    <div class="title">
+        <h2>Favoris</h2>
+
+        <div>
+            <button class="ajouter" id="btn-favoris">+</button>
+            <button class="delete" id="btn-favoris-supprimer">X</button>
+        </div>
+    </div>
+
+    <div class="favoris__liens" id="favori">
+
+
+    </div>
+
+    <!-- Modal supprimer-->
+    <div class="modal-container" id="modal-favoris-supprimer">
+        <div class="overlay modal-trigger"></div>
+
+        <div class="modal" role="dialog" aria-labelledby="modalTitle">
+            <button class="close-modal modal-trigger" aria-label="favoris">X</button>
+            
+            <form class="favoriForm" action="" id="favoris-supprimer">
+                
+            </form>
+
+            <button class="btn-form delete" id="btn-delete-favori">Supprimer</button>
+        </div>
+    </div>
+    <!-- Modal fin -->
+
+    <!-- modal favoris -->
+
+    <div class="modal-container" id="modal-favoris">
+        <div class="overlay modal-trigger"></div>
+
+        <div class="modal" role="dialog" aria-labelledby="modalTitle">
+            <button class="close-modal modal-trigger" aria-label="favoris">X</button>
+
+            <form id="new-favori" class="favoris__nouvelle">
+                <label for="name-lien" class="favoris__nouvelle__title">Titre du lien</label>
+                <input class="favoris__nouvelle__texte" type="text" name="name-lien" id="favori-name"
+                    placeholder="Ajouter un titre ...">
+                <label for="favoris" class="favoris__nouvelle__title">Ajouter un lien</label>
+                <input class="favoris__nouvelle__texte" type="url" name="favoris" id="favori-url"
+                    placeholder="Ajouter un lien ...">
+
+                <button type="submit" class="btn btn-valider">Ajouter lien aux favoris</button>
+
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

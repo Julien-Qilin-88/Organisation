@@ -4,8 +4,6 @@ import * as controllers from './controllers.js';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+router.get('/', controllers.accueil);
 
 export default router;

@@ -1,0 +1,29 @@
+@use './var';
+
+body{
+
+    background-image: url(../images/background.jpg);
+    background-size: 100%;
+    font-family: var.$font;
+    position: fixed;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+}
+
+a {
+
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+
+}
+
+a:hover{
+    color: var.$white;
+    padding: 1rem;
+}

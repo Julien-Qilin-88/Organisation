@@ -1,0 +1,25 @@
+@use './var';
+
+.container{
+
+    padding: 1.5rem;
+}
+.widgets{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -1rem 1rem;
+
+}
+
+.delete:hover{
+    background-color: var.$opacity-annuler;
+}

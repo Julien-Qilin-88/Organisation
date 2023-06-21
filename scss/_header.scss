@@ -1,0 +1,44 @@
+@use './var';
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 1rem;
+
+}
+
+
+.nav {
+
+
+    &__ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;     
+
+
+        &__liste {
+            padding: 1rem;
+            font-weight: 500;
+            font-size: 1.2rem;
+            list-style: none;
+
+            &:hover {
+                background-color: var.$secondary;
+                border-radius: 15PX;
+
+
+            }
+        }
+        &__image{
+           padding: 0 5rem;
+            list-style: none;
+            width: 4rem;
+            
+        }
+
+
+    }
+}
