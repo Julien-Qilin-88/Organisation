@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <%- include("partials/head") %>
+</head>
+
+<body>
+    <header>
+        <%- include("partials/header") %>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <%- include("modules/google")  %>
+            
+            <!-- kanban -->
+            <div class="kanban-heading">
+                <strong class="kanban-heading-text">Kanban</strong>
+            </div>
+            <div class="kanban-board">
+                <div class="kanban-block" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <strong>Liste des tâches</strong>
+                    <div class="task-button-block">
+                        <button id="task-button" onclick="createTask()">Créer tâche</button>
+                    </div>
+                    <div class="task" id="task1" draggable="true" ondragstart="drag(event)">
+                        <span>tâche 1</span>
+                    </div>
+                    <div class="task" id="task2" draggable="true" ondragstart="drag(event)">
+                        <span>tâche 2</span>
+                    </div>
+                    <div class="task" id="task3" draggable="true" ondragstart="drag(event)">
+                        <span>tâche 3</span>
+                    </div>
+                    <div class="task" id="task4" draggable="true" ondragstart="drag(event)">
+                        <span>tâche 4</span>
+                    </div>
+                    <div class="task" id="task5" draggable="true" ondragstart="drag(event)">
+                        <span>tâche 5</span>
+                    </div>
+                    <div class="task" id="task6" draggable="true" ondragstart="drag(event)">
+                        <span>tâche 6</span>
+                    </div>
+                </div>
+                <div class="kanban-block" id="inprogress" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <strong>En cours</strong>
+                </div>
+                <div class="kanban-block" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <strong>Fin</strong>
+                </div>
+                <div class="create-new-task-block" id="create-new-task-block">
+                    <strong>Nouvelle tâche</strong>
+                    <span class="form-row">
+                        <label class="form-row-label" for="task-name">Tâche</label>
+                        <input class="form-row-input" type="text" name="task-name" id="task-name">
+                    </span>
+                    <span class="form-row">
+                        <label class="form-row-label" for="task-name">Description</label>
+                        <textarea class="form-row-input" name="task-description" id="task-description" cols="70"
+                            rows="10"></textarea>
+                    </span>
+                    <span class="form-row">
+                        <label class="form-row-label" for="task-name">Status</label>
+                        <select class="form-row-input" name="task-status" id="task-status">
+                            <option value="todo">Liste des tâches</option>
+                            <option value="inprogress">En cours</option>
+                            <option value="done">Fin</option>
+                        </select>
+                    </span>
+                    <span class="form-row-buttons">
+                        <button id="edit-button" onclick="editTask()">Editer</button>
+                        <button id="save-button" onclick="saveTask()">Sauvegarder</button>
+                        <button id="cancel-button" onclick="createTask()">Annuler</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <%- include("partials/footer") %>
+    </footer>
+</body>
+
+</html>

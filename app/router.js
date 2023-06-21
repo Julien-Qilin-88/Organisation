@@ -6,4 +6,6 @@ const router = express.Router();
 
 router.get('/', controllers.accueil);
 
+router.get('/kanban', controllers.kanban);
+
 export default router;
