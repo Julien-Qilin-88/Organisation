@@ -4,6 +4,10 @@
 
     <div class="note__write">
         <ul class="note__write__ul" id="notes">
+            <% for (const note of notes) { %>
+                <li class="note__write__li" id="note-<%= note.id %>"><%= note.note %> <button type="reset" id="delete-note-<%= note.id %>" class="delete">X</button></li>
+
+                <% } %>    
         </ul>
     </div>
 
@@ -15,10 +19,10 @@
         <div class="modal" role="dialog" aria-labelledby="modalTitle">
             <button class="close-modal modal-trigger" aria-label="note">X</button>
 
-            <form id="new-note" class="note__nouvelle form-note">
+            <form id="new-note" class="note__nouvelle form-note" action="/ajoutnote" method="POST">
                 <label for="note" class="note__nouvelle__title">Ecrire une nouvelle note</label>
-                <textarea class="note__nouvelle__texte" name="note" id="note" cols="30" rows="10"
-                    placeholder="Ecrire note ..."></textarea>
+                <input type="text" class="note__nouvelle__texte" name="note" id="note" cols="30" rows="10"
+                    placeholder="Ecrire note ..."></input>
 
                 <button type="submit" class="btn btn-valider" id="btn-add-note">Ajouter note</button>
 

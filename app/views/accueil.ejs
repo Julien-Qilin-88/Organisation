@@ -1,34 +1,61 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
+
     <%- include("partials/head") %>
+
 </head>
 
 <body>
-    <header>
-        <%- include("partials/header") %>
-    </header>
+    <div class="container">
 
-    <main>
+        <header role="banner" class="header">
 
-        <%- include("modules/google")  %>
+            <%- include("partials/header") %>
 
-        <div class="widgets">
+        </header>
 
-            <%- include("modules/note") %>
 
-            <%- include("modules/favoris") %>
 
-            <%- include("modules/rdv") %>
+        <main>
+            <% if (locals.isLogged) { %>
 
-        </div>
 
-    </main>
+                <%- include("modules/google") %>
 
-    <footer>
-        <%- include("partials/footer") %>
-    </footer>
+                    <div class="widgets">
+
+                        <%- include("modules/note") %>
+
+                            <%- include("modules/favoris") %>
+
+                                <%- include("modules/rdv") %>
+
+                    </div>
+
+
+                    <% } else  { %>
+                        
+                            <%- include("partials/connexion") %>
+                        
+                       
+                        <% } %>
+                                
+        
+
+
+        </main>
+
+        <footer>
+
+            <%- include("partials/footer") %>
+
+        </footer>
+
+    </div>
+
 </body>
 
 </html>

@@ -1,0 +1,23 @@
+<div class="connexion">
+    <form action="/" method="POST">
+        <% if (typeof alert !=='undefined' ) { %>
+            <div class="form__error" role="alert">
+                <%= alert %>
+            </div>
+            <% } %>
+                <fieldset>
+                    <legend>Connexion</legend>
+                    
+                        <div class="connexion__test">
+                    <label for="email">Email : </label><input type="email" name="email" id="email">
+                </div>
+                <div class="connexion__test">
+                    <label for="password">Mot de passe : </label><input type="password" name="password" id="password">
+                </div>
+
+                </fieldset>
+
+                <button type="submit">valider</button>
+    </form>
+    <a href="/inscription">Pas de compte ?</a>
+</div>
