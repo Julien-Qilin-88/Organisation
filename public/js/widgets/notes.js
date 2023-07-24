@@ -15,67 +15,21 @@ function toggleModalNote() {
 document.getElementById("btn-add-note").addEventListener("click", function () {
     // fermeture modal
     toggleModalNote();
-    
+
 });
 
 // supprimer une note au click sur la croix rouge et  le supprimer de la base de donnée
 
-document.querySelectorAll(".delete").forEach(item => {
-    item.addEventListener("click", event => {
-        // suppression de la note
-        item.parentNode.remove();
-        // suppression de la note de la base de donnée sql 
-        let id = item.parentNode.id;
-        let url = "/delete-note/" + id;
-        console.log(url);
+// document.querySelectorAll(".delete").forEach(item => {
+//     item.addEventListener("click", event => {
 
-        // utiliser le back pour supprimer la note
-        fetch(url,  {
-            method: 'POST'                     
-    })
-})
-})
-       
+//         item.parentNode.remove();
 
+//         let id = item.parentNode.id;
+//         let url = "/delete-note/" + id;
 
-
-
-// Envoi des notes dans tableau
-
-// let notes = [];
-
-// function addNote(note) {
-//     notes.push(note);
-//     displayNotes();
-// }
-
-// function deleteNote(index) {
-//     notes.splice(index, 1);
-//     displayNotes();     
-// }
-
-// function displayNotes() {
-//     let ul = document.getElementById("notes")
-//     ul.innerHTML = "";
-//     notes.forEach((note, index) => {
-//         let li = document.createElement("li");
-//         li.classList.add("note__write__li");
-//         li.appendChild(document.createTextNode(note));
-//         let button = document.createElement("button");
-//         button.classList.add("delete");
-//         button.appendChild(document.createTextNode("X"));
-//         button.addEventListener("click", ()=>deleteNote(index));        
-//         li.appendChild(button);
-//         ul.appendChild(li);
+//         fetch(url, {
+//             method: 'POST'
+//         })
 //     })
-// }
-
-// function saveNote(e) {
-//     e.preventDefault();
-//     let note = document.getElementById("note").value;
-//     addNote(note);
-//     document.getElementById("note").value = "";
-//     toggleModalNote();
-// }
-
-// document.getElementById("new-note").addEventListener("submit", saveNote);
+// })

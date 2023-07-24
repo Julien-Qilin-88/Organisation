@@ -40,8 +40,6 @@ const userController = {
 
 
         } catch (error) {
-
-            console.log(error);
             res.render('inscription', {
                 title: 'Inscription',
                 error: error.message

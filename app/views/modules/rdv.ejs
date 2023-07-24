@@ -5,15 +5,26 @@
     <div class="rdv__encours">
         <table class="tableaurdv">
             <thead>
+                
                 <tr>
-                    <th>Nom</th>
+                    <th>rdv.</th>
                     <th>Lieu</th>
                     <th>Date</th>
                     <th>Heure</th>
                     <th>Supprimer</th>
                 </tr>
+               
             </thead>
-            <tbody id="rdvs">
+            <tbody>
+                <% for (const rdv of rdvs) { %>
+                <tr>
+                    <th class="rdv__encours__th"><%= rdv.nom %></th>
+                    <th class="rdv__encours__th"><%= rdv.lieu %></th>
+                    <th class="rdv__encours__th"><%= rdv.date %></th>
+                    <th class="rdv__encours__th"><%= rdv.heure %></th>
+                    <th><button class="delete" onclick="handleDelete('<%= rdv.id %>', '/delete-rdv/', this.parentNode.parentNode)">X</button></th> 
+                </tr>
+                <% } %>
             </tbody>
         </table>
     </div>
@@ -26,7 +37,7 @@
         <div class="modal" role="dialog" aria-labelledby="modalTitle">
             <button class="close-modal modal-trigger" aria-label="note">X</button>
 
-            <form id="new-rdv">
+            <form id="new-rdv" action="/ajoutrdv" method="POST">
                 <fieldset class="rdv__nouveau">
                     <legend class="rdv__nouveau__title">Ajouter un rendez-vous</legend>
 
@@ -44,12 +55,12 @@
 
                     <div class="rdv__nouveau__form">
                         <label for="date">Date :</label>
-                        <input class="rdv__nouveau__input" type="date" name="date" id="rdvDate">
+                        <input class="rdv__nouveau__input" type="date" name="date" value="date" id="rdvDate">
 
                     </div>
                     <div class="rdv__nouveau__form">
                         <label for="heure">Heure :</label>
-                        <input class="rdv__nouveau__input" type="time" name="heure" id="rdvHeure">
+                        <input class="rdv__nouveau__input" type="time" name="heure" value="heure" id="rdvHeure">
 
                     </div>
                     <button type="submit" class="btn btn-valider">Ajouter rendez-vous</button>

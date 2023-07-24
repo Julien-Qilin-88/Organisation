@@ -26,7 +26,7 @@ const noteController = {
             res.redirect('/');
 
         } catch (error) {
-            res.render('accueil', {
+            res.render('404', {
                 title: 'Ajouter une note',
                 error: error.message,
             });

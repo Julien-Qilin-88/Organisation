@@ -8,12 +8,12 @@
 
             <!-- si je ne suis pas connecter je cacher le boutton connexion -->
             <% if (locals.isLogged) { %>
-                <li class="nav__ul__liste"><a href="/">Accueil</a></li>
+                <li class="nav__ul__liste debut--li"><a href="/">Accueil</a></li>
                 <li class="nav__ul__image"><img class="header__image" src="./img/Logo_minimaliste.svg"
                         alt="logo julien"></li>
 
                 <li class="nav__ul__liste"><a href="/kanban">Mon kanban</a></li>
-                <li class="nav__ul__liste"><a href="/disconnect" class="btn">Déconnexion</a></li>
+                <li class="nav__ul__liste deconnexion--li"><a href="/disconnect">Déconnexion</a></li>
 
                 <% } else {%>
                     <!-- si je suis sur la page /inscription j'affiche connexion -->

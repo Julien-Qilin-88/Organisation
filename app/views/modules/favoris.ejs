@@ -11,7 +11,11 @@
     </div>
 
     <div class="favoris__liens" id="favori">
-
+        <% for (const favori of favoris) { %>
+           
+            <a class="favoris__liens--card" target="_blank" href="<%= favori.lien %>"><%= favori.titre %><img src="https://www.google.com/s2/favicons?domain=<%= favori.lien %>" alt="Logo <%= favori.titre %>" class="card__image"></a>
+       
+        <% } %>
 
     </div>
 
@@ -23,10 +27,17 @@
             <button class="close-modal modal-trigger" aria-label="favoris">X</button>
             
             <form class="favoriForm" action="" id="favoris-supprimer">
+                <% for (const favori of favoris) { %>
+                    <div class="favoriForm__favori">
+                        <input type="checkbox" name="favori" value="<%= favori.id %>" id="<%= favori.id %>">
+                        <label for="<%= favori.id %>"><%= favori.titre %></label>
+             <button class="btn-form delete" id="btn-delete-favori" onclick="handleDelete('<%= favori.id %>', '/delete-favori/', this.parentNode)">Supprimer</button>
+                       
+                    </div>
+                <% } %>
                 
             </form>
 
-            <button class="btn-form delete" id="btn-delete-favori">Supprimer</button>
         </div>
     </div>
     <!-- Modal fin -->
@@ -39,12 +50,12 @@
         <div class="modal" role="dialog" aria-labelledby="modalTitle">
             <button class="close-modal modal-trigger" aria-label="favoris">X</button>
 
-            <form id="new-favori" class="favoris__nouvelle">
+            <form id="new-favori" class="favoris__nouvelle" action="/ajoutfavori" method="post">
                 <label for="name-lien" class="favoris__nouvelle__title">Titre du lien</label>
-                <input class="favoris__nouvelle__texte" type="text" name="name-lien" id="favori-name"
+                <input class="favoris__nouvelle__texte" type="text" name="titreLien" id="favori-name"
                     placeholder="Ajouter un titre ...">
                 <label for="favoris" class="favoris__nouvelle__title">Ajouter un lien</label>
-                <input class="favoris__nouvelle__texte" type="url" name="favoris" id="favori-url"
+                <input class="favoris__nouvelle__texte" type="url" name="lien" id="favori-url"
                     placeholder="Ajouter un lien ...">
 
                 <button type="submit" class="btn btn-valider">Ajouter lien aux favoris</button>

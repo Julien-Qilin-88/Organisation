@@ -5,7 +5,7 @@
     <div class="note__write">
         <ul class="note__write__ul" id="notes">
             <% for (const note of notes) { %>
-                <li class="note__write__li" id="<%= note.id %>"><%= note.note %> <button type="reset" id="delete-note-<%= note.id %>" class="delete">X</button></li>
+                <li class="note__write__li"><%= note.note %> <button class="delete" onclick="handleDelete('<%= note.id %>', '/delete-note/', this.parentNode)">X</button></li>
                 <% } %>    
         </ul>
     </div>
@@ -20,11 +20,9 @@
 
             <form id="new-note" class="note__nouvelle form-note" action="/ajoutnote" method="POST">
                 <label for="note" class="note__nouvelle__title">Ecrire une nouvelle note</label>
-                <input type="text" class="note__nouvelle__texte" name="note" id="note" cols="30" rows="10"
-                    placeholder="Ecrire note ..."></input>
-
+                <textarea type="text" class="note__nouvelle__texte" name="note" id="note" cols="30" rows="10"
+                    placeholder="Ecrire note ..."></textarea>
                 <button type="submit" class="btn btn-valider" id="btn-add-note">Ajouter note</button>
-
 
             </form>
 
