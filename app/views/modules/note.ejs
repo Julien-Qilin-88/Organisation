@@ -5,8 +5,7 @@
     <div class="note__write">
         <ul class="note__write__ul" id="notes">
             <% for (const note of notes) { %>
-                <li class="note__write__li" id="note-<%= note.id %>"><%= note.note %> <button type="reset" id="delete-note-<%= note.id %>" class="delete">X</button></li>
-
+                <li class="note__write__li" id="<%= note.id %>"><%= note.note %> <button type="reset" id="delete-note-<%= note.id %>" class="delete">X</button></li>
                 <% } %>    
         </ul>
     </div>

@@ -13,8 +13,6 @@ const userController = {
 
     signupAction: async (req, res) => {
         try {
-
-
             const options = { minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
             if (!validator.isEmail(req.body.email)) {
                 throw new Error('Email invalide');

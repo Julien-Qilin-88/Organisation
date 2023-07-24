@@ -41,6 +41,4 @@ CREATE TABLE "note" (
 
 );
 
-
-
 COMMIT;

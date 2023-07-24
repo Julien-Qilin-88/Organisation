@@ -18,6 +18,27 @@ document.getElementById("btn-add-note").addEventListener("click", function () {
     
 });
 
+// supprimer une note au click sur la croix rouge et  le supprimer de la base de donnée
+
+document.querySelectorAll(".delete").forEach(item => {
+    item.addEventListener("click", event => {
+        // suppression de la note
+        item.parentNode.remove();
+        // suppression de la note de la base de donnée sql 
+        let id = item.parentNode.id;
+        let url = "/delete-note/" + id;
+        console.log(url);
+
+        // utiliser le back pour supprimer la note
+        fetch(url,  {
+            method: 'POST'                     
+    })
+})
+})
+       
+
+
+
 
 // Envoi des notes dans tableau
 
