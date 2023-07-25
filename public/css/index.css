@@ -308,11 +308,12 @@ textarea {
   display: flex;
   flex-direction: column;
   margin-top: 0rem;
+  width: 100%;
+  overflow: scroll;
 }
 .note__write__ul {
   display: flex;
   flex-direction: column;
-  list-style: none;
   padding: 0;
 }
 .note__write__li {
@@ -324,6 +325,7 @@ textarea {
   padding: 0.3rem;
   margin-left: 0rem;
   box-sizing: border-box;
+  width: 100%;
 }
 .note__nouvelle {
   display: flex;

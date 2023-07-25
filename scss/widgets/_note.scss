@@ -15,18 +15,20 @@
 
     &__write {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
         margin-top: 0rem;
+        width: 100%;
+        overflow: scroll;
 
-        &__ul{
+        &__ul {
             display: flex;
             flex-direction: column;
-            list-style: none;
             padding: 0;
 
+            
         }
-        
-        &__li{
+
+        &__li {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -35,6 +37,7 @@
             padding: 0.3rem;
             margin-left: 0rem;
             box-sizing: border-box;
+            width: 100%;
         }
 
     }
