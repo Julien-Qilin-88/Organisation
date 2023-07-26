@@ -1,24 +1,27 @@
-<div class="connexion">
-    <form action="/" method="POST">
-        <% if (typeof alert !=='undefined' ) { %>
-            <div class="form__error" role="alert">
-                <%= alert %>
-            </div>
-            <% } %>
-                <fieldset>
-                    <legend>Connexion</legend>
+<div class="container__connexion">
+    <div class="connexion">
+        <form action="/" method="POST">
+            <span class="text-center">Connexion</span>
+            <% if (typeof alert !=='undefined' ) { %>
+                <div class="form__error" role="alert">
+                    <%= alert %>
+                </div>
+                <% } %>
 
                     <div class="connexion__test">
-                        <label for="email">Email : </label><input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email" required>
+                        <label for="email">Email</label>
                     </div>
                     <div class="connexion__test">
-                        <label for="password">Mot de passe : </label><input type="password" name="password"
-                            id="password">
+                        <input type="password" name="password" id="password" required>
+                        <label for="password">Mot de passe</label>
+                    </div>
+                    <div class="connexion__centrage">
+                        <button type="submit" class="btn--form">valider</button>
+                        <a href="/inscription">Pas de compte ?</a>
                     </div>
 
-                </fieldset>
+        </form>
 
-                <button type="submit">valider</button>
-    </form>
-    <a href="/inscription">Pas de compte ?</a>
+    </div>
 </div>

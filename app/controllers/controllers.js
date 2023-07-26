@@ -8,7 +8,7 @@ export const accueil = async (req, res) => {
         const result = await database.query('SELECT * FROM "note" WHERE id_note = $1', [req.session.user.id]);
         const notes = result.rows;
       
-        const rdv = await database.query('SELECT nom, lieu, TO_CHAR("date", \'DD/MM/YYYY\') AS "date", TO_CHAR("heure", \'HH24:MI\') AS "heure" FROM "rdv" WHERE id_rdv = $1', [req.session.user.id]);
+        const rdv = await database.query('SELECT id, nom, lieu, TO_CHAR("date", \'DD/MM/YYYY\') AS "date", TO_CHAR("heure", \'HH24:MI\') AS "heure" FROM "rdv" WHERE id_rdv = $1', [req.session.user.id]);
         const rdvs = rdv.rows;
 
         const favori = await database.query('SELECT * FROM "favori" WHERE id_favori = $1', [req.session.user.id]);

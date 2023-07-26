@@ -9,7 +9,7 @@ import favoriController from './controllers/favoriController.js';
  
 const router = express.Router();
 
-router.get('/', controllers.accueil, userController.signupPage);
+router.get('/', controllers.accueil, userController.signupPage, userController.loginPage);
 router.post('/', userController.loginAction);
 
 router.post('/ajoutnote', noteController.addNoteAction);

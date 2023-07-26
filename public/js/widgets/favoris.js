@@ -23,3 +23,13 @@ modalTriggersFavorisSupprimer.forEach(trigger => trigger.addEventListener("click
 function toggleModalFavorisSupprimer() {
     modalFavorisSupprimer.classList.toggle("active")
 }
+
+// 
+let favoriDiv = document.querySelectorAll(".favoris__liens--card");
+let favoriA = document.getElementById("favori");
+
+if (favoriDiv.length > 20) {
+    favoriA.style.overflowY = "scroll";
+}else {
+    favoriA.style.overflowY = "hidden";
+}

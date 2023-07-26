@@ -20,6 +20,11 @@
     <main>
 
 <p style="color:white">ERREUR 404 </p>
+<% if (typeof error !=='undefined' ) { %>
+    <div style="color:white" class="form__error" role="alert">
+        <%= error %>
+    </div>
+    <% } %>
     </main>
 
     <footer>

@@ -18,18 +18,26 @@ document.getElementById("btn-add-note").addEventListener("click", function () {
 
 });
 
-// supprimer une note au click sur la croix rouge et  le supprimer de la base de donnée
+//  si plus de 10 li avec la class note__write__li on ajoute overflow-y: scroll; sur la div note-write
+let noteWriteLi = document.querySelectorAll(".note__write__li");
+let noteWrite = document.getElementById("note-write");
 
-// document.querySelectorAll(".delete").forEach(item => {
-//     item.addEventListener("click", event => {
+if (noteWriteLi.length > 10) {
+    noteWrite.style.overflowY = "scroll";
+}else {
+    noteWrite.style.overflowY = "hidden";
+}
 
-//         item.parentNode.remove();
 
-//         let id = item.parentNode.id;
-//         let url = "/delete-note/" + id;
+// mettre un compteur de caractere
+let zoneTexte = document.getElementById('note');
+document.getElementById('note').addEventListener('keyup', function() {
+    document.getElementById('compteur-note').innerHTML = zoneTexte.value.length + "/45";
+    if (zoneTexte.value.length > 45 || zoneTexte.value.length < 1) {
+        document.getElementById('compteur-note').style.color = "red";
+    }else {
+        document.getElementById('compteur-note').style.color = "white";
+    }
 
-//         fetch(url, {
-//             method: 'POST'
-//         })
-//     })
-// })
+});
+

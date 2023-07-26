@@ -1,5 +1,6 @@
-import client from '../client';
 import validator from 'validator';
+import client from '../database.js';
+
 
 class Note {
     #note;
@@ -22,6 +23,9 @@ class Note {
         if (!value || typeof value !== 'string') {
             throw new Error('Note obligatoire');
         }
+        else if (!validator.isLength(value, { min: 1, max: 45 })) {
+            throw new Error('La note doit contenir entre 1 et 45 caractères');
+        }
         this.#note = value;
     }
 
@@ -33,16 +37,17 @@ class Note {
     }
 
 
-    async create(note, id_note) {
+    async create() {
         try {
-            if (!validator.isLength(note, { min: 1, max: 255 })) {
-                throw new Error('La note doit contenir entre 1 et 255 caractères');
-
+            //  45 caractères max
+            if (!validator.isLength(this.note, { min: 1, max: 45 })) {
+                throw new Error('La note doit contenir entre 1 et 45 caractères');
             }
 
-            await client.query('INSERT INTO "note" (note, id_note) VALUES ($1, $2)', [note, id_note]);
 
+            await client.query('INSERT INTO "note" (note, id_note) VALUES ($1, $2)', [this.note, this.id_note]);
         } catch (error) {
+            
             throw new Error(error.message);
         }
     }
@@ -59,7 +64,7 @@ class Note {
             throw new Error(error.message);
         }
     }
-        
+
     async delete(note, id_note) {
         try {
             await client.query('DELETE FROM "note" WHERE id_note = $1 AND note = $2', [id_note, note]);
@@ -68,3 +73,6 @@ class Note {
         }
     }
 }
+
+export default Note;
+

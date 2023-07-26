@@ -76,52 +76,26 @@ class User {
     });
   }
 
-  static findOne(email) {
-    return new Promise((resolve, reject) => {
-      const sql = 'SELECT * FROM user WHERE email = ?';
-      connection.query(sql, [email], (error, result) => {
-        if (error) {
-          reject(error);
-        } else if (result.length) {
-          const [row] = result;
-          const user = new User(row);
-          resolve(user);
-        } else {
-          resolve(null);
-        }
-      });
-    });
+  static async findOne(email) {
+    const sql = 'SELECT * FROM user WHERE email = ?';
+    const [row] = await connection.query(sql, [email]);
+  
+    if (row) {
+      return new User(row);
+    } else {
+      return null;
+    }
   }
 
-  static findById(id) {
-    return new Promise((resolve, reject) => {
-      const sql = 'SELECT * FROM user WHERE id = ?';
-      connection.query(sql, [id], (error, result) => {
-        if (error) {
-          reject(error);
-        } else if (result.length) {
-          const [row] = result;
-          const user = new User(row);
-          resolve(user);
-        } else {
-          resolve(null);
-        }
-      });
-    });
-  }
+  static async findById(id) {
+    const sql = 'SELECT * FROM user WHERE id = ?';
+    const [row] = await connection.query(sql, [id]);
 
-  static findAll() {
-    return new Promise((resolve, reject) => {
-      const sql = 'SELECT * FROM user';
-      connection.query(sql, (error, result) => {
-        if (error) {
-          reject(error);
-        } else {
-          const users = result.map((row) => new User(row));
-          resolve(users);
-        }
-      });
-    });
+    if (row) {
+      return new User(row);
+    } else {
+      return null;
+    }
   }
 
   update() {

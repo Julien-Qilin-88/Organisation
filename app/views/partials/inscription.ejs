@@ -1,42 +1,39 @@
-<div class="inscription">
-    <form action="/inscription" method="POST">
-        
-        <fieldset>
-            <legend>Inscription</legend>
+<div class="container__inscription">
+    <div class="inscription">
+        <form action="/inscription" method="POST">
+            <span class="text-center">Inscription</span>
             <% if (typeof error !=='undefined' ) { %>
                 <div class="form__error" role="alert">
                     <%= error %>
                 </div>
                 <% } %>
-                <div class="inscription__partie1">
-                    <div class="inscription__test">
-                        <Label for="prenom">Prénom :</Label><input type="text" name="prenom" id="prenom" required>
+                    <div class="inscription__partie1">
+                        <div class="inscription__test">
+                            <input type="text" name="prenom" id="prenom" required><Label for="prenom">Prénom</Label>
+                        </div>
+                        <div class="inscription__test">
+                            <input type="text" name="nom" id="nom" required><Label for="nom">Nom</Label>
 
+                        </div>
+                        <div class="inscription__test">
+                            <input type="email" name="email" id="email" required><label for="email">Email</label>
+                        </div>
                     </div>
-                    <div class="inscription__test">
-                        <Label for="nom">Nom :</Label><input type="text" name="nom" id="nom" required>
 
+                    <div class="inscription__partie2">
+                        <div class="inscription__test">
+                            <input type="password" name="password" id="password" required><label for="password">Mot de
+                                passe</label>
+                        </div>
+                        <div class="inscription__test">
+                            <input type="password" name="passwordConfirm" id="passwordConfirm" required><label
+                                for="passwordConfirm">Repeter mot de passe</label>
+                        </div>
                     </div>
-                    <div class="inscription__test">
-                        <label for="email">Email :</label><input type="email" name="email" id="email" required>
 
+                    <div class="inscription__centrage">
+                        <button type="submit" class="btn--form">valider</button>
                     </div>
-
-</div>
-<div class="inscription__partie2">
-    <div class="inscription__test">
-        <label for="password">Mot de passe :</label><input type="password" name="password" id="password" required>
+        </form>
     </div>
-    <div class="inscription__test">
-        <label for="passwordConfirm">Repeter mot de passe :</label><input type="password" name="passwordConfirm"
-            id="passwordConfirm" required>
-
-    </div>
-</div>
-</fieldset>
-<div>
-    <button type="submit">valider</button>
-</div>
-
-</form>
 </div>

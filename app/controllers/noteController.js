@@ -1,5 +1,8 @@
 import validator from 'validator';
 import database from '../database.js';
+import Note from '../models/note.js';
+import * as controllers from './controllers.js';
+
 
 const noteController = {
     // page ajout note
@@ -11,25 +14,26 @@ const noteController = {
 
     // action ajout note
     addNoteAction: async (req, res) => {
-
         try {
-            if (!validator.isLength(req.body.note, { min: 1, max: 255 }) && req.session.user) {
-                throw new Error('La note doit contenir entre 1 et 255 caractères');
+  
+        //   si erreur, on actualise pas la page et on affiche l'erreur
+            const note = new Note(
+                req.body.note,
+                req.session.user.id
+            );
+            await note.create();
 
-            }
-
-            const note = req.body.note;
-            const id = req.session.user.id;
-           
-            await database.query('INSERT INTO "note" (note, id_note) VALUES ($1, $2)', [note, id]);
 
             res.redirect('/');
 
         } catch (error) {
-            res.render('404', {
+
+            // ne pas actualiser la page et afficher l'erreurr
+            res.render('accueil', {
                 title: 'Ajouter une note',
                 error: error.message,
             });
+            
         }
     },
 

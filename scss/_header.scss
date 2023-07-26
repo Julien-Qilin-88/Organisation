@@ -20,6 +20,7 @@
         flex-direction: row;
         align-items: center;     
         margin: 2rem auto;
+        padding-inline-start: 0;
 
 
 
@@ -28,9 +29,11 @@
             font-weight: 500;
             font-size: 1.2rem;
             list-style: none;
+            background-color: rgba(0, 0, 0, 0.89);
+            border-radius: 15px;
 
             &:hover {
-                background-color: var.$secondary;
+                background-color: #538b9f;
                 border-radius: 15px;
 
 
@@ -40,6 +43,7 @@
            padding: 0 5rem;
             list-style: none;
             width: 4rem;
+            
             
         }
 

@@ -2,29 +2,38 @@
 
 <div class="rdv">
 
-    <div class="rdv__encours">
+    <div class="rdv__encours" id="rdv-tbody">
         <table class="tableaurdv">
             <thead>
-                
+
                 <tr>
-                    <th>rdv.</th>
-                    <th>Lieu</th>
-                    <th>Date</th>
-                    <th>Heure</th>
-                    <th>Supprimer</th>
+                    <th>RDV</th>
+                    <th>LIEU</th>
+                    <th>DATE</th>
+                    <th>HEURE</th>
                 </tr>
-               
+
             </thead>
             <tbody>
                 <% for (const rdv of rdvs) { %>
-                <tr>
-                    <th class="rdv__encours__th"><%= rdv.nom %></th>
-                    <th class="rdv__encours__th"><%= rdv.lieu %></th>
-                    <th class="rdv__encours__th"><%= rdv.date %></th>
-                    <th class="rdv__encours__th"><%= rdv.heure %></th>
-                    <th><button class="delete" onclick="handleDelete('<%= rdv.id %>', '/delete-rdv/', this.parentNode.parentNode)">X</button></th> 
-                </tr>
-                <% } %>
+                    <tr class="rdv-tr">
+                        <th class="rdv__encours__th">
+                            <%= rdv.nom %>
+                        </th>
+                        <th class="rdv__encours__th">
+                            <%= rdv.lieu %>
+                        </th>
+                        <th class="rdv__encours__th">
+                            <%= rdv.date %>
+                        </th>
+                        <th class="rdv__encours__th">
+                            <%= rdv.heure %>
+                        </th>
+                        <th><button class="delete"
+                                onclick="handleDelete('<%= rdv.id %>', '/delete-rdv/', this.parentNode.parentNode)">X</button>
+                        </th>
+                    </tr>
+                    <% } %>
             </tbody>
         </table>
     </div>
@@ -38,33 +47,35 @@
             <button class="close-modal modal-trigger" aria-label="note">X</button>
 
             <form id="new-rdv" action="/ajoutrdv" method="POST">
-                <fieldset class="rdv__nouveau">
-                    <legend class="rdv__nouveau__title">Ajouter un rendez-vous</legend>
 
-                    <div class="rdv__nouveau__form">
-                        <label for="nom">Nom :</label>
-                        <input class="rdv__nouveau__input" type="text" name="nom" id="rdvNom"
-                            placeholder="Nom du rendez-vous ...">
-                    </div>
+                <span class="text-center">Nouveau rendez-vous</span>
 
-                    <div class="rdv__nouveau__form">
-                        <label for="lieu">Lieu :</label>
-                        <input class="rdv__nouveau__input" type="text" name="lieu" id="rdvLieu"
-                            placeholder="Lieu du rendez-vous ...">
-                    </div>
+                <div class="connexion__test">
+                    <input type="text" name="nom" id="rdvNom" required>
+                    <label for="nom">Nom</label>
+                    <span class="compteur-span-rdv" id="compteur-nom">0/15</span>
+                </div>
 
-                    <div class="rdv__nouveau__form">
-                        <label for="date">Date :</label>
-                        <input class="rdv__nouveau__input" type="date" name="date" value="date" id="rdvDate">
+                <div class="connexion__test">
+                    <input class="rdv__nouveau__input" type="text" name="lieu" id="rdvLieu" required>
+                    <label for="lieu">Lieu</label>
+                    <span class="compteur-span-rdv" id="compteur-lieu">0/15</span>
+                </div>
 
-                    </div>
-                    <div class="rdv__nouveau__form">
-                        <label for="heure">Heure :</label>
-                        <input class="rdv__nouveau__input" type="time" name="heure" value="heure" id="rdvHeure">
+                <div class="connexion__test">
+                    <input class="rdv__nouveau__input" type="text" name="date" id="rdvDate" required>
+                    <label for="date">Date</label>
+                    <span class="compteur-span-rdv">Format : 01/01/2023</span>
+                </div>
 
-                    </div>
-                    <button type="submit" class="btn btn-valider">Ajouter rendez-vous</button>
-                </fieldset>
+                <div class="connexion__test">
+                    <input class="rdv__nouveau__input" type="text" name="heure" id="rdvHeure" required>
+                    <label for="heure">Heure</label>
+                    <span class="compteur-span-rdv">Format : 13:30 </span>
+                </div>
+
+                <button type="submit" class="btn btn-valider">Ajouter rendez-vous</button>
+
 
             </form>
 
@@ -72,6 +83,6 @@
 
     </div>
 
-    <button class="btn btn-valider" id="btn-rdv">Ajouter rendez-vous</button>
+    <button class="btn btn-valider" id="btn-rdv">Ajouter un rendez-vous</button>
 
 </div>
