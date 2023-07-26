@@ -31,9 +31,9 @@ let rdvWriteTr = document.querySelectorAll(".rdv-tr");
 let rdvWrite = document.getElementById("rdv-tbody");
 
 if (rdvWriteTr.length > 11) {
-    rdvWrite.style.overflow = "scroll";
+    rdvWrite.style.overflowY = "scroll";
 }else {
-    rdvWrite.style.overflow = "hidden";
+    rdvWrite.style.overflowY = "hidden";
 }
 
 // mettre un compteur de caractere

@@ -403,7 +403,9 @@ textarea {
 }
 
 #rdv-tbody {
-  overflow: scroll;
+  overflow-y: scroll;
+  display: block;
+  overflow-x: hidden;
 }
 
 #compteur-nom, #compteur-lieu {
