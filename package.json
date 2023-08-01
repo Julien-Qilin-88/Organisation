@@ -7,7 +7,6 @@
   "scripts": {
     "start": "node index",
     "dev": "node-dev index --clear --notify=false"
-  
   },
   "keywords": [],
   "author": "Julien PIERRAT-LABOLLE",

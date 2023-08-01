@@ -33,3 +33,15 @@ if (favoriDiv.length > 20) {
 }else {
     favoriA.style.overflowY = "hidden";
 }
+
+// mettre un compteur de caractere
+let zoneTexteLien = document.getElementById('favori-name');
+document.getElementById('favori-name').addEventListener('keyup', function() {
+    document.getElementById('compteur-lien').innerHTML = zoneTexteLien.value.length + "/12";
+    if (zoneTexteLien.value.length > 10 || zoneTexteLien.value.length < 1) {
+        document.getElementById('compteur-lien').style.color = "red";
+    }else {
+        document.getElementById('compteur-lien').style.color = "white";
+    }
+
+});

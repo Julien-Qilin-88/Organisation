@@ -1,5 +1,11 @@
 @use '../var';
 
+#compteur-lien {
+    color: red;
+    width: 100%;
+    text-align: center;
+}
+
 .favoris {
     display: flex;
     flex-direction: column;

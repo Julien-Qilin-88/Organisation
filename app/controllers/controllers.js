@@ -1,4 +1,3 @@
-import data from '../data.js';
 import database from '../database.js';
 
 export const accueil = async (req, res) => {
@@ -15,9 +14,17 @@ export const accueil = async (req, res) => {
         const favoris = favori.rows;
 
         res.render('accueil', { user: req.session.user, notes, rdvs, favoris });
-    } else {
+    } 
+    // si erreur je renvoi le message d'erreur
+    else if (req.session.error) {
+        res.render('accueil', { error: req.session.error });
+    }
+    // sinon je renvoi la vu accueil
+    else {
+
         res.render('accueil');
     }
+    
 }
 
 export const kanban = (req, res) => {

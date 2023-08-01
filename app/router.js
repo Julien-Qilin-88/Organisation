@@ -1,8 +1,6 @@
 import express from 'express';
-import data from './data.js';
 import * as controllers from './controllers/controllers.js';
 import userController from './controllers/userController.js';
-import database from './database.js';
 import noteController from './controllers/noteController.js';
 import rdvController from './controllers/rdvController.js';
 import favoriController from './controllers/favoriController.js';

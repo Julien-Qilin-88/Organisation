@@ -16,8 +16,11 @@ const userController = {
             const options = { minLength: 12, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
             if (!validator.isEmail(req.body.email)) {
                 throw new Error('Email invalide');
-
-
+            }
+            // pas d'email en double dans la base de données
+            const foundUser = await database.query('SELECT * FROM "account" WHERE email = $1', [req.body.email]);
+            if (foundUser.rows[0]) {
+                throw new Error('Email déjà utilisé');
             }
             else if (!validator.isStrongPassword(req.body.password, options)) {
                 throw new Error('Le mot de passe doit comporter au moins 12 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');

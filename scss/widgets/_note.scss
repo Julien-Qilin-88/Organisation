@@ -23,8 +23,9 @@
     &__write {
         display: flex;
         flex-direction: column;
-        margin-top: 0rem;
-        width: 100%;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        height: 100%;
         overflow-y: scroll;
         overflow-x: hidden;
 
@@ -34,7 +35,7 @@
             flex-direction: column;
             padding: 0;
 
-            
+
         }
 
         &__li {
@@ -73,4 +74,3 @@
     }
 
 }
-

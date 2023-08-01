@@ -3,15 +3,20 @@
 <div class="favoris">
     <div class="title">
         <h2>Favoris</h2>
+        <% if (typeof errorFavori !=='undefined' ) { %>
+            <div class="form__error" role="alert">
+                <%= errorFavori %>
+            </div>
+            <% } %>
 
-        <div>
-            
-            <button class="delete" id="btn-favoris-supprimer">X</button>
-        </div>
+                <div>
+
+                    <button class="delete" id="btn-favoris-supprimer">X</button>
+                </div>
     </div>
 
     <div class="favoris__liens" id="favori">
-        
+
         <% for (const favori of favoris) { %>
 
             <a class="favoris__liens--card" target="_blank" href="<%= favori.lien %>">
@@ -33,8 +38,10 @@
             <form class="favoriForm" action="" id="favoris-supprimer">
                 <% for (const favori of favoris) { %>
                     <div class="favoriForm__favori">
-                        
-                        <span><%= favori.titre %></span><button class="delete" id="btn-delete-favori"
+
+                        <span>
+                            <%= favori.titre %>
+                        </span><button class="delete" id="btn-delete-favori"
                             onclick="handleDelete('<%= favori.id %>', '/delete-favori/', this.parentNode)">Supprimer</button>
 
                     </div>
@@ -61,11 +68,13 @@
                 <div class="connexion__test">
                     <input class="favoris__nouvelle__texte" type="text" name="titreLien" id="favori-name" required>
                     <label for="name-lien" class="favoris__nouvelle__title">Titre du lien</label>
+                    <span class="compteur-span-lien" id="compteur-lien">0/10</span>
                 </div>
 
                 <div class="connexion__test">
                     <input class="favoris__nouvelle__texte" type="url" name="lien" id="favori-url" required>
                     <label for="favoris" class="favoris__nouvelle__title">Ajouter un lien</label>
+                    <span class="compteur-span-lien">Format : http://exemple.exemple</span>
                 </div>
 
                 <button type="submit" class="btn btn-valider">Ajouter lien aux favoris</button>

@@ -1,4 +1,5 @@
 import validator from "validator";
+import connection from "../database.js";
 
 class User {
   #hash;
@@ -38,6 +39,8 @@ class User {
     if (!validator.isEmail(value)) {
       throw new Error('Email invalide');
     }
+ 
+  
     this.#email = value;
   }
 

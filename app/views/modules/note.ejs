@@ -2,49 +2,51 @@
 
 <div class="note">
     <div class="title">
-    <h2>Notes</h2>
-</div>
+        <h2>Notes</h2>
+        <% if (typeof error !=='undefined' ) { %>
+            <div class="form__error" role="alert">
+                <%= error %>
+            </div>
+            <% } %>
+    </div>
     <div class="note__write" id="note-write">
-        <ul class="note__write__ul" id="notes">
-            <% for (const note of notes) { %>
-                <li class="note__write__li">
-                    <%= note.note %> <button class="delete"
-                            onclick="handleDelete('<%= note.id %>', '/delete-note/', this.parentNode)">X</button>
-                </li>
-                <% } %>
-        </ul>
+   
+            <ul class="note__write__ul" id="notes">
+                <% for (const note of notes) { %>
+                    <li class="note__write__li">
+                        <%= note.note %> <button class="delete"
+                                onclick="handleDelete('<%= note.id %>', '/delete-note/', this.parentNode)">X</button>
+                    </li>
+                    <% } %>
+            </ul>
+    
+
     </div>
-
-    <!-- modal bloc note -->
-
-    <div class="modal-container" id="modal-note">
-        <div class="overlay modal-trigger"></div>
-
-        <div class="modal" role="dialog" aria-labelledby="modalTitle">
-            <% if (typeof error !=='undefined' ) { %>
-                <div class="form__error" role="alert">
-                    <%= error %>
-                </div>
-                <% } %>
-                    <button class="close-modal modal-trigger" aria-label="note">X</button>
-
-                    <form id="new-note" class="note__nouvelle form-note" action="/ajoutnote" method="POST">
-
-                        <span class="text-center">Nouvelle note</span>
-
-                        <div class="connexion__test">
-                            <input type="note" name="note" id="note" required></input>
-                            <label for="note">Ecrire une nouvelle note</label>
-                            
-                        </div>
-                        <div id="compteur-note">0/45</div>
-                        <button type="submit" class="btn btn-valider" id="btn-add-note">Ajouter note</button>
-
-                    </form>
-
-        </div>
-    </div>
-
     <button class="btn btn-valider" id="btn-note">Ajouter une note</button>
 
+</div>
+<!-- modal bloc note -->
+
+<div class="modal-container" id="modal-note">
+    <div class="overlay modal-trigger"></div>
+
+    <div class="modal" role="dialog" aria-labelledby="modalTitle">
+
+        <button class="close-modal modal-trigger" aria-label="note">X</button>
+
+        <form id="new-note" class="note__nouvelle form-note" action="/ajoutnote" method="POST">
+
+            <span class="text-center">Nouvelle note</span>
+
+            <div class="connexion__test">
+                <input type="note" name="note" id="note" required></input>
+                <label for="note">Ecrire une nouvelle note</label>
+
+            </div>
+            <div id="compteur-note">0/45</div>
+            <button type="submit" class="btn btn-valider" id="btn-add-note">Ajouter note</button>
+
+        </form>
+
+    </div>
 </div>

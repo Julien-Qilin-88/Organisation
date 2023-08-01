@@ -1,5 +1,6 @@
 import validator from 'validator';
 import database from '../database.js';
+import Favori from '../models/favori.js';
 
 const favoriController = {
     // page ajout favori
@@ -12,23 +13,49 @@ const favoriController = {
     // action ajout favori
     addFavoriAction: async (req, res) => {
         try {
-                
-            const titre = req.body.titreLien;
-            const lien = req.body.lien;
-            const id = req.session.user.id;
-
-            console.log(titre + ' ' + lien + ' ' + id);
-
-            await database.query('INSERT INTO "favori" (titre, lien, id_favori) VALUES ($1, $2, $3)', [titre, lien, id]);
+            const favori = new Favori(
+                req.body.titreLien,
+                req.body.lien,
+                req.session.user.id
+            );
+            await favori.create();
 
             res.redirect('/');
+       
+
+            //     if (!validator.isURL(req.body.lien)) {
+            //         throw new Error('Lien invalide');
+            //     }
+
+            //     // max 10 caracteres dans le titre
+            //     if (!validator.isLength(req.body.titreLien, { max: 10 })) {
+            //         throw new Error('Titre trop long');
+            //     }
+            // const titre = req.body.titreLien;
+            // const lien = req.body.lien;
+            // const id = req.session.user.id;
+
+            // console.log(titre + ' ' + lien + ' ' + id);
+
+            // await database.query('INSERT INTO "favori" (titre, lien, id_favori) VALUES ($1, $2, $3)', [titre, lien, id]);
+
+            // res.redirect('/');
 
         } catch (error) {
-            res.render('accueil', {
-                title: 'Ajouter un favori',
-                error: error.message,
-            });
-        }
+
+            const result = await database.query('SELECT * FROM "note" WHERE id_note = $1', [req.session.user.id]);
+            const notes = result.rows;
+          
+            const rdv = await database.query('SELECT id, nom, lieu, TO_CHAR("date", \'DD/MM/YYYY\') AS "date", TO_CHAR("heure", \'HH24:MI\') AS "heure" FROM "rdv" WHERE id_rdv = $1', [req.session.user.id]);
+            const rdvs = rdv.rows;
+    
+            const favori = await database.query('SELECT * FROM "favori" WHERE id_favori = $1', [req.session.user.id]);
+            const favoris = favori.rows;
+    
+            res.render('accueil', { user: req.session.user, notes, rdvs, favoris, errorFavori: error.message });
+                // avec gestion des erreurs et ajout des select de la page d'accueil qui sont dans la fonction accueil du fichier controllers.js
+                
+            }
     },
 
     // action supprimer favori

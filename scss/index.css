@@ -354,7 +354,6 @@ textarea {
 .note {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin-top: 2rem;
   background-color: rgba(0, 0, 0, 0.89);
   width: 30%;
@@ -368,9 +367,8 @@ textarea {
 .note__write {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  height: 100%;
+  margin-top: 0rem;
+  width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -538,12 +536,6 @@ textarea {
 
 #clock #time div:last-child span:nth-child(2) {
   background: #ec0062;
-}
-
-#compteur-lien {
-  color: red;
-  width: 100%;
-  text-align: center;
 }
 
 .favoris {
