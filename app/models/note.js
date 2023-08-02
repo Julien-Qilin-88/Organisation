@@ -52,13 +52,13 @@ class Note {
         }
     }
 
-    async afficherNote(note, id_note) {
+    static async findAll(id_note) {
         try {
             const result = await client.query('SELECT * FROM "note" WHERE id_note = $1', [id_note]);
             if (result) {
                 return result.rows;
             } else {
-                throw new Error('Aucune note');
+                return null;
             }
         } catch (error) {
             throw new Error(error.message);

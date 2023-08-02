@@ -22,25 +22,6 @@ const favoriController = {
 
             res.redirect('/');
        
-
-            //     if (!validator.isURL(req.body.lien)) {
-            //         throw new Error('Lien invalide');
-            //     }
-
-            //     // max 10 caracteres dans le titre
-            //     if (!validator.isLength(req.body.titreLien, { max: 10 })) {
-            //         throw new Error('Titre trop long');
-            //     }
-            // const titre = req.body.titreLien;
-            // const lien = req.body.lien;
-            // const id = req.session.user.id;
-
-            // console.log(titre + ' ' + lien + ' ' + id);
-
-            // await database.query('INSERT INTO "favori" (titre, lien, id_favori) VALUES ($1, $2, $3)', [titre, lien, id]);
-
-            // res.redirect('/');
-
         } catch (error) {
 
             const result = await database.query('SELECT * FROM "note" WHERE id_note = $1', [req.session.user.id]);

@@ -39,7 +39,7 @@ const rdvController = {
             const favoris = favori.rows;
     
             res.render('accueil', { user: req.session.user, notes, rdvs, favoris, errorRdv: error.message });
-                // avec gestion des erreurs et ajout des select de la page d'accueil qui sont dans la fonction accueil du fichier controllers.js
+          
                 
             }
     },
@@ -52,7 +52,6 @@ const rdvController = {
 
             const idRdv = req.params.id;
 
-            console.log(id);
             await database.query('DELETE FROM "rdv" WHERE id = $1 AND id_rdv = $2', [idRdv, id]);
 
             res.redirect('/');

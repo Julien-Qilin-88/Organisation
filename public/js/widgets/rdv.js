@@ -18,7 +18,6 @@ const handleDelete = (id, customUrl, parentNode) => {
     let url = customUrl + id;
     parentNode.remove();
 
-    console.log(url);
     // utiliser le back pour supprimer le rdv
     fetch(url, {
         method: 'POST'

@@ -70,7 +70,7 @@ class Favori {
         }
     }
 
-    async afficherFavori(titre, lien, id_favori) {
+    static async findAll(id_favori) {
         try {
             const result = await client.query("SELECT * FROM favori WHERE id_favori = $1", [id_favori]);
             if (result) {

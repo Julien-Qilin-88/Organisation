@@ -103,6 +103,19 @@ class rdv {
 
 }
 
+    static async findAll(id_rdv) {
+        try {
+            const result = await client.query('SELECT * FROM rdv WHERE id_rdv = $1', [id_rdv]);
+            if (result) {
+                return result.rows;
+            } else {
+                return null;
+            }
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+
 }
 
 export default rdv;
