@@ -38,7 +38,7 @@ class Favori {
         if (!value || typeof value !== "string") {
             throw new Error("Lien obligatoire");
         }
-//  lien internet obligatoire
+
         else if (!validator.isURL(value)) {
             throw new Error("Le lien doit être une URL");
         }
@@ -55,11 +55,11 @@ class Favori {
 
     async create() {
         try {
-            //  45 caractères max
+
             if (!validator.isLength(this.titre, { min: 1, max: 10 })) {
                 throw new Error("Le titre doit contenir entre 1 et 10 caractères");
             }
-//  lien internet obligatoire
+
             if (!validator.isURL(this.lien)) {
                 throw new Error("Le lien doit être une URL");
             }
@@ -112,7 +112,7 @@ class Favori {
     async supprimerFavori(id_favori) {
         try {
             await client.query("DELETE FROM favori WHERE id_favori = $1", [id_favori]);
-            
+
         } catch (error) {
             throw new Error(error.message);
         }
@@ -120,4 +120,3 @@ class Favori {
 }
 
 export default Favori;
-

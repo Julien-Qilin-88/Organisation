@@ -1,6 +1,5 @@
 // horloge
 
-
 function clock()
   {
     let hours = document.getElementById('hour');

@@ -1,7 +1,6 @@
 import validator from 'validator';
 import client from '../database.js';
 
-
 class Note {
     #note;
     #id_note;
@@ -65,9 +64,14 @@ class Note {
         }
     }
 
-    async delete(note, id_note) {
+    async delete() {
         try {
-            await client.query('DELETE FROM "note" WHERE id_note = $1 AND note = $2', [id_note, note]);
+                const id = req.session.user.id;
+
+            const idNote = req.params.id;
+
+            await client.query('DELETE FROM "note" WHERE id = $1 AND id_note = $2', [idNote, id]);
+            
         } catch (error) {
             throw new Error(error.message);
         }

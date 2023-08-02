@@ -1,4 +1,5 @@
 // modal
+
 let modalNote = document.getElementById("modal-note");
 let modalTriggersNote = modalNote.querySelectorAll(".modal-trigger");
 
@@ -40,4 +41,7 @@ document.getElementById('note').addEventListener('keyup', function() {
     }
 
 });
+
+
+
 

@@ -2,9 +2,6 @@ import express from 'express';
 import session from 'express-session';
 import * as dotenv from 'dotenv';
 import router from './app/router.js';
-import database from './app/database.js';
-
-
 
 dotenv.config();
 
@@ -19,8 +16,6 @@ app.use(session({
   resave: true,
   secret: process.env.SECRET,
 }));
-
-
 
 app.use((req, res, next) => {
   res.locals.isLogged = req.session.isLogged
