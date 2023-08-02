@@ -3,6 +3,11 @@
 <div class="rdv">
 
     <div class="rdv__encours" id="rdv-tbody">
+        <% if (typeof errorRdv !=='undefined' ) { %>
+            <div class="form__error" role="alert">
+                <%= errorRdv %>
+            </div>
+            <% } %>
         <table class="tableaurdv">
             <thead>
 
