@@ -77,9 +77,9 @@ class rdv {
             throw new Error('Heure obligatoire');
         }
         // l'heure doit etre 13:30 avec les :
-        else if (!validator.isAfter(value, '00:00') || !validator.isBefore(value, '23:59')) {
-            throw new Error('L\'heure doit être comprise entre 00:00 et 23:59 et au format HH:MM');
-        }
+        // else if (!validator.isAfter(value, '00:00') || !validator.isBefore(value, '23:59')) {
+        //     throw new Error('L\'heure doit être comprise entre 00:00 et 23:59 et au format HH:MM');
+        // }
         this.#heure = value;
     }
 
@@ -105,7 +105,7 @@ class rdv {
 
     static async findAll(id_rdv) {
         try {
-            const result = await client.query('SELECT * FROM rdv WHERE id_rdv = $1', [id_rdv]);
+            const result = await client.query('SELECT id, nom, lieu, TO_CHAR("date", \'DD/MM/YYYY\') AS "date", TO_CHAR("heure", \'HH24:MI\') AS "heure" FROM "rdv" WHERE id_rdv = $1', [id_rdv]);
             if (result) {
                 return result.rows;
             } else {
